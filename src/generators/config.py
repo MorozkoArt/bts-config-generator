@@ -8,7 +8,7 @@ class ConfigGenerator:
         if not root_class:
             return "<?xml version=\"1.0\" ?>\n<error>No root class found</error>"
 
-        return "<?xml version=\"1.0\" ?>\n" + self._build_xml(root_class, classes)
+        return self._build_xml(root_class, classes)
 
     def _build_xml(self, class_info: ClassInfo, classes: Dict[str, ClassInfo], indent: int = 0) -> str:
         indent_str = "    " * indent
