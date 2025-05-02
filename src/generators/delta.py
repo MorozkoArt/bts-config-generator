@@ -23,7 +23,7 @@ class DeltaGenerator:
         return [
             {"key": k, "value": v}
             for k, v in patched.items()
-            if k not in original
+                if k not in original
         ]
 
     def _find_deletions(self, original: Dict, patched: Dict) -> List[str]:

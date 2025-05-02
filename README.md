@@ -1,6 +1,6 @@
 # BTS Config Generator 🛠️
 
-![Python](https://img.shields.io/badge/python-3.8+-blue.svg)
+![Python](https://img.shields.io/badge/python-3.11+-blue.svg)
 [![Code Style](https://img.shields.io/badge/code%20style-PEP%208-brightgreen.svg)](https://pep8.org)
 
 Генератор конфигураций для базовых станций с поддержкой:
@@ -10,7 +10,7 @@
 
 ## 🚀 Запуск программы
 
-Программа запускается **исключительно через main.py**:
+Программа запускается **исключительно через `main.py`**:
 
 ```bash
 python main.py
@@ -34,7 +34,16 @@ python main.py
   Весь основной код вынесен из main.py в отдельные модули  
   В main.py осталась только точка входа
 
-## 📂Содержимое папки `out/`:
+## 📂Содержимое папки `input/`, содержащей входные файлы:
+
+```plaintext
+📂input/
+├──📄impulse_test_input.xml # UML-модель
+├──📄config.json            # Базовая конфигурация
+└──📄patched_config.json    # Измененная конфигурация
+```
+
+## 📂Содержимое папки `out/`, содержащей выходные файлы:
 
 ```plaintext
 📂out/
@@ -56,7 +65,7 @@ python main.py
 ```
 
 ## 🧩Технологии
-- Python 3.8+
+- Python 3.11+
 - Стандартная библиотека
 - XML/JSON обработка
 - Dataclasses для моделей
