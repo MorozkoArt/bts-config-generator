@@ -38,12 +38,19 @@ class XmlModelParser:
         self.classes[class_info.name] = class_info
 
     def _parse_aggregation(self, elem: ET.Element):
-        relation = ClassRelation(
-            target=elem.attrib["target"],
-            source=elem.attrib["source"],
+        full_relation = ClassRelation(
             source_multiplicity=elem.attrib["sourceMultiplicity"],
-            target_multiplicity=elem.attrib["targetMultiplicity"]
+            target_multiplicity=elem.attrib["targetMultiplicity"],
+            source=elem.attrib["source"],
+            target=elem.attrib["target"]
         )
 
-        if relation.target in self.classes:
-            self.classes[relation.target].relations.append(relation)
+        if full_relation.target in self.classes:
+            self.classes[full_relation.target].relations.append(full_relation)
+
+        if full_relation.source in self.classes:
+            simplified_relation = ClassRelation(
+                source_multiplicity=full_relation.source_multiplicity,
+                target_multiplicity=full_relation.target_multiplicity
+            )
+            self.classes[full_relation.source].relations.append(simplified_relation)
